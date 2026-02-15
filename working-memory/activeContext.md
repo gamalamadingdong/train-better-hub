@@ -2,22 +2,28 @@
 
 > Last updated: 2026-02-15
 
-## Current State: Fresh Repo — Not Yet Scaffolded
+## Current State: Scaffolded — Ready for Content
 
-The `train-better-hub` repo was created on GitHub and added to the multi-app workspace on 2026-02-15.
+The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. Build verified clean. Pushed to GitHub.
 
 ### What Exists
-- GitHub repo: `gamalamadingdong/train-better-hub`
-- `.gitignore`, `LICENSE`
+- Next.js 16 App Router + TypeScript + TailwindCSS
+- 10 routes: `/`, `/products`, `/athletes`, `/coaches`, `/community`, `/docs`, `/roadmap`, `/feedback`, `/support`, `/_not-found`
+- Shared type convention: `src/lib/types/` (database, shared, supabase, barrel)
+- Supabase client wired (needs `.env` with real keys)
+- `.env.example` with all expected vars
 - `.github/instructions/copilot-instructions.md`
-- `working-memory/` docs (this file, projectBrief, systemPatterns, techContext)
+- `working-memory/` docs
 
 ### What's Next
-- [ ] Scaffold Next.js App Router project (TypeScript, TailwindCSS)
-- [ ] Set up shared type convention (`src/lib/types/`)
-- [ ] Create page stubs for IA: Home, Products, Athletes, Coaches, Community, Support, Docs, Roadmap, Feedback, Auth
+- [x] Scaffold Next.js App Router project (TypeScript, TailwindCSS)
+- [x] Set up shared type convention (`src/lib/types/`)
+- [x] Create page stubs for IA
 - [ ] Configure Vercel deployment for `train-better.app`
-- [ ] Wire up Supabase Auth (shared project)
+- [ ] Wire up Supabase Auth (shared project) — add real env vars
+- [ ] Flesh out page content (Phase B issues #20-#29)
+- [ ] Add `next/link` navigation (replace `<a>` tags for internal links)
+- [ ] Mobile-responsive nav (hamburger menu)
 
 ### Blockers
 - None currently
