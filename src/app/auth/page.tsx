@@ -28,6 +28,7 @@ function normalizeReturnTo(raw: string | undefined): string {
       new URL(hubBase).origin,
       'https://readyall.org',
       'https://www.readyall.org',
+      'https://logbook.readyall.org',
       'https://logbook.train-better.app',
       'https://logbook-companion.vercel.app',
     ]);
@@ -59,7 +60,7 @@ export default async function AuthPage({ searchParams }: AuthPageProps) {
   }
 
   const returnTo = normalizeReturnTo(params.returnTo);
-  const lcBase = process.env.NEXT_PUBLIC_LC_URL || 'https://logbook.train-better.app';
+  const lcBase = process.env.NEXT_PUBLIC_LC_URL || 'https://logbook.readyall.org';
   const loginUrl = new URL('/login', lcBase);
   const authFlowId = params.authFlowId ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 

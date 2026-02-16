@@ -20,6 +20,7 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
 - Roadmap now includes a "References" subsection linking to key KB and planning sources
 - Unified auth verification pass completed before push: Hub LC fallback URLs normalized to `logbook.train-better.app` across CTA surfaces
+- Final pre-push auth hardening: Hub auth fallback LC base now defaults to `https://logbook.readyall.org`; auth allowlist includes `https://logbook.readyall.org`; `.env.example` cross-app URLs aligned to readyall domains
 - Global metadata/header/footer brand labels updated to ReadyAll
 - Auth hub fallback URL now defaults to `https://readyall.org` with `readyall.org`/`www.readyall.org` in origin allowlist
 - Unified auth entry route `/auth` redirects to LC login with validated `returnTo`
