@@ -1,68 +1,104 @@
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16">
-      {/* Hero */}
-      <section className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Train Better.
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-          Tools for rowers and coaches who want to improve. Log workouts, analyze
-          performance, connect your erg, and manage your team — all in one
-          ecosystem.
+      <section className="tb-soft-card rounded-2xl border border-neutral-200 bg-white px-8 py-12 dark:border-neutral-800 dark:bg-neutral-950">
+        <p className="tb-accent-chip inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+          Community-supported open sports hub
         </p>
-        <div className="mt-8 flex justify-center gap-4">
+        <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Practical tools and reference resources for people who row.
+        </h1>
+        <p className="mt-5 max-w-3xl text-lg text-neutral-600 dark:text-neutral-400">
+          Train Better combines athlete tooling, coach workflows, and a growing
+          resource library. Built in the open, shaped by feedback, and focused
+          on usefulness over hype.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href={process.env.NEXT_PUBLIC_LC_URL || "https://log.train-better.app"}
-            className="rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-700"
+            href={process.env.NEXT_PUBLIC_LC_URL || "https://logbook.train-better.app"}
+            className="rounded-md bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-white"
           >
             Open Logbook Companion
           </a>
           <a
-            href="/products"
-            className="rounded-md border border-neutral-300 dark:border-neutral-700 px-6 py-3 font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-900"
+            href="/docs"
+            className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900"
           >
-            See All Products
+            Browse Resources
+          </a>
+          <a
+            href="/roadmap"
+            className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900"
+          >
+            View Roadmap
           </a>
         </div>
       </section>
 
-      {/* Product Cards */}
-      <section className="mt-24 grid gap-8 md:grid-cols-2">
+      <section className="mt-14 grid gap-8 md:grid-cols-2">
         <ProductCard
           title="Logbook Companion"
-          description="Web-based workout logger with Concept2 sync, analytics, templates, and a full coaching module for team management."
+          description="Workout logging, Concept2 sync, analytics, templates, and coaching workflows in one web app."
           href="/products#logbook-companion"
-          cta="Learn More"
+          cta="View details"
         />
         <ProductCard
           title="ErgLink"
-          description="Mobile app that connects to your PM5 via Bluetooth for live data relay, real-time racing, and interval programming."
+          description="PM5 companion app for live data workflows, interval programming, and on-the-floor session utility."
           href="/products#erglink"
-          cta="Learn More"
+          cta="View details"
         />
       </section>
 
-      {/* For Athletes / For Coaches */}
-      <section className="mt-24 grid gap-8 md:grid-cols-2">
-        <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-8">
-          <h3 className="text-xl font-semibold">For Athletes</h3>
-          <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            Track every meter, see your progress, sync with Concept2, and get
-            insights on your training.
+      <section className="mt-14 grid gap-8 lg:grid-cols-3">
+        <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
+          <h3 className="text-lg font-semibold">For Athletes</h3>
+          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+            Track meters, monitor progress, and keep your training history clean
+            and usable.
           </p>
-          <a href="/athletes" className="mt-4 inline-block text-indigo-600 hover:underline">
-            Learn more →
+          <a href="/athletes" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
+            Explore athlete workflows →
           </a>
         </div>
-        <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-8">
-          <h3 className="text-xl font-semibold">For Coaches</h3>
-          <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            Manage rosters, track erg scores, create boatings, assign workouts,
-            and monitor your team.
+        <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
+          <h3 className="text-lg font-semibold">For Coaches</h3>
+          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+            Manage squads, assignments, scores, notes, and boatings without
+            spreadsheet sprawl.
           </p>
-          <a href="/coaches" className="mt-4 inline-block text-indigo-600 hover:underline">
-            Learn more →
+          <a href="/coaches" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
+            Explore coach workflows →
+          </a>
+        </div>
+        <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
+          <h3 className="text-lg font-semibold">Reference Library</h3>
+          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+            Practical guides, notes, and framework docs for training and
+            implementation.
+          </p>
+          <a href="/docs" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
+            Browse resources →
+          </a>
+        </div>
+      </section>
+
+      <section className="mt-14 rounded-2xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-950">
+        <h2 className="text-2xl font-semibold">Built in public, improved by the community</h2>
+        <p className="mt-3 max-w-3xl text-neutral-600 dark:text-neutral-400">
+          This project is open-source and community-supported. The roadmap,
+          feedback queue, and release work are public so people can see what is
+          being built and why.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="/community" className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Community Hub
+          </a>
+          <a href="/feedback" className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Share Feedback
+          </a>
+          <a href="/roadmap" className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            See Roadmap
           </a>
         </div>
       </section>
@@ -82,10 +118,10 @@ function ProductCard({
   cta: string;
 }) {
   return (
-    <div className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-8">
-      <h2 className="text-2xl font-semibold">{title}</h2>
-      <p className="mt-2 text-neutral-600 dark:text-neutral-400">{description}</p>
-      <a href={href} className="mt-4 inline-block text-indigo-600 hover:underline">
+    <div className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-950">
+      <h2 className="text-xl font-semibold">{title}</h2>
+      <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-400">{description}</p>
+      <a href={href} className="tb-accent-text mt-4 inline-block text-sm font-medium hover:underline">
         {cta} →
       </a>
     </div>

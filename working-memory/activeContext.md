@@ -2,13 +2,14 @@
 
 > Last updated: 2026-02-15
 
-## Current State: Scaffolded — Ready for Content
+## Current State: Scaffolded + First Content Pass Complete
 
-The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. Build verified clean. Pushed to GitHub.
+The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. First content pass is complete for Home, Products, and Coaches with improved value proposition copy and clearer CTAs. Build verified clean.
 
 ### What Exists
 - Next.js 16 App Router + TypeScript + TailwindCSS
 - 10 routes: `/`, `/products`, `/athletes`, `/coaches`, `/community`, `/docs`, `/roadmap`, `/feedback`, `/support`, `/_not-found`
+- Home, Products, Coaches pages now have upgraded messaging + clearer CTA language
 - Shared type convention: `src/lib/types/` (database, shared, supabase, barrel)
 - Supabase client wired (needs `.env` with real keys)
 - `.env.example` with all expected vars
@@ -21,9 +22,11 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - [x] Create page stubs for IA
 - [ ] Configure Vercel deployment for `train-better.app`
 - [ ] Wire up Supabase Auth (shared project) — add real env vars
-- [ ] Flesh out page content (Phase B issues #20-#29)
+- [ ] Flesh out remaining page content (Athletes, Community, Docs, Roadmap, Feedback, Support)
+- [ ] Add baseline Hub analytics events for key CTAs (`open_logbook`, `open_erglink`, `open_docs`, `open_feedback`)
 - [ ] Add `next/link` navigation (replace `<a>` tags for internal links)
 - [ ] Mobile-responsive nav (hamburger menu)
+- [ ] Unified auth execution (planned in `working-memory/unified-auth-plan.md`)
 
 ### Blockers
 - None currently
@@ -32,4 +35,5 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Architecture planning: `LogbookCompanion/working-memory/train-better-site-architecture.md`
 - Phased roadmap: `LogbookCompanion/working-memory/train-better-change-roadmap-spec.md`
 - Domain rollout: `LogbookCompanion/working-memory/domain-rollout-plan.md`
+- Unified auth plan: `working-memory/unified-auth-plan.md`
 - GitHub issues: Epics #7-#11, Phase A #12-#19, Phase B #20-#29 (in `logbook-companion` repo)

@@ -1,19 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #0f766e;
+  --accent-soft: #ccfbf1;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #09090b;
+    --foreground: #e5e7eb;
+    --accent: #5eead4;
+    --accent-soft: #134e4a;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+a {
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+
+.tb-accent-text {
+  color: var(--accent);
+}
+
+.tb-accent-chip {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.tb-soft-card {
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03), 0 6px 20px rgba(15, 23, 42, 0.04);
 }

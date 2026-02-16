@@ -10,8 +10,9 @@ export default function CoachesPage() {
     <div className="mx-auto max-w-7xl px-6 py-16">
       <h1 className="text-3xl font-bold">For Coaches</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
-        The coaching module in Logbook Companion gives you everything you need to
-        manage a rowing program — from roster to results.
+        Run your rowing program from one place: athletes, assignments, erg
+        scores, notes, and boatings — all team-scoped and built for daily
+        coaching operations.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -38,7 +39,13 @@ export default function CoachesPage() {
           href={process.env.NEXT_PUBLIC_LC_URL || "https://log.train-better.app"}
           className="rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-700"
         >
-          Get Started →
+          Open Coach Workspace →
+        </a>
+        <a
+          href="/docs"
+          className="ml-4 inline-block rounded-md border border-neutral-300 dark:border-neutral-700 px-6 py-3 font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-900"
+        >
+          Read Coach Docs
         </a>
       </div>
     </div>
