@@ -13,6 +13,8 @@ export default function DocsPage() {
         A practical library for athletes and coaches: quickstart guides,
         workflow references, and community notes. The knowledge base focus is
         training plans, physiology, technique, and practical implementation.
+        Resources stay publicly readable; account access is only required for
+        participation actions like voting and submissions.
       </p>
 
       <section className="tb-soft-card mt-10 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">

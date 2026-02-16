@@ -10,8 +10,9 @@ export default function CommunityPage() {
     <div className="mx-auto max-w-7xl px-6 py-16">
       <h1 className="text-3xl font-bold">Community</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
-        ReadyAll is built in public. Logged-in users can vote on feature
-        priorities, and everyone can see the roadmap and backlog.
+        ReadyAll is built in public. Reading roadmap, backlog, and resources is
+        open to everyone; logged-in users can vote and participate in feature
+        prioritization.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-3">

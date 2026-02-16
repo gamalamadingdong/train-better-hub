@@ -17,6 +17,7 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Docs sections are now filled with practical content extracted/synthesized from `LogbookCompanion/kb`
 - Docs now cites source material for key topics (Pete Plan, Wolverine Plan, physiology/zones, technique, injury prevention)
 - Community page now includes practical contribution pathways and transparency commitments
+- Access policy clarified across public surfaces: reading resources/roadmap/backlog is public; login gates participation actions (voting/prioritization)
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
 - Roadmap now includes a "References" subsection linking to key KB and planning sources
 - Unified auth verification pass completed before push: Hub LC fallback URLs normalized to `logbook.train-better.app` across CTA surfaces
