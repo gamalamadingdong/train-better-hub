@@ -76,9 +76,10 @@ export default function DocsPage() {
           </ul>
           <p className="mt-4 text-xs text-neutral-500">Sources:</p>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-neutral-500">
-            <li><a className="hover:underline" href="https://github.com/gamalamadingdong/logbook-companion/blob/main/kb/training-plans/pete-plan.md" target="_blank" rel="noopener noreferrer">Pete Plan source notes</a></li>
-            <li><a className="hover:underline" href="https://github.com/gamalamadingdong/logbook-companion/blob/main/kb/training-plans/Wolverine%20Plan.md" target="_blank" rel="noopener noreferrer">Wolverine Plan source notes</a></li>
+            <li><a className="hover:underline" href="https://thepeteplan.wordpress.com/the-pete-plan/" target="_blank" rel="noopener noreferrer">The Pete Plan (official public plan page)</a></li>
             <li><a className="hover:underline" href="https://www.row2k.com/features/391/mike-caviston-training-with-the-wolverine-plan-and-working-with-navy-seals/" target="_blank" rel="noopener noreferrer">Row2k interview/context on Wolverine methodology</a></li>
+            <li><a className="hover:underline" href="https://web.archive.org/web/20240116170746/http://www.concept2.com/forums/wolverine_plan.htm" target="_blank" rel="noopener noreferrer">Archived Wolverine Plan reference document (Concept2 forum mirror)</a></li>
+            <li><a className="hover:underline" href="https://www.concept2.com/training/plans" target="_blank" rel="noopener noreferrer">Concept2 training plans index</a></li>
           </ul>
         </div>
 

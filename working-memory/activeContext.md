@@ -16,6 +16,7 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Docs now includes anchored sections for RWN, workout templates, training plans, physiology, and technique
 - Docs sections are now filled with practical content extracted/synthesized from `LogbookCompanion/kb`
 - Docs now cites source material for key topics (Pete Plan, Wolverine Plan, physiology/zones, technique, injury prevention)
+- Training-plan citations on `/docs` now prefer external public sources (Pete Plan public page, Row2k Wolverine context, archived Concept2 Wolverine reference, Concept2 plans index) instead of internal KB links
 - Community page now includes practical contribution pathways and transparency commitments
 - Access policy clarified across public surfaces: reading resources/roadmap/backlog is public; login gates participation actions (voting/prioritization)
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
