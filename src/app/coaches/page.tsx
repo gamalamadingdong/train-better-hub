@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "For Coaches — Train Better",
+  title: "For Coaches — ReadyAll",
   description: "Manage your team, track erg scores, create boatings, and assign workouts.",
 };
 
@@ -36,7 +36,7 @@ export default function CoachesPage() {
 
       <div className="mt-12">
         <a
-          href={process.env.NEXT_PUBLIC_LC_URL || "https://log.train-better.app"}
+          href={process.env.NEXT_PUBLIC_LC_URL || "https://logbook.train-better.app"}
           className="rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-700"
         >
           Open Coach Workspace →

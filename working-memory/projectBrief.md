@@ -13,7 +13,7 @@ The umbrella marketing, documentation, and community site for the **Train Better
 ## Non-Negotiable
 - Must not duplicate workout/coaching logic from LC
 - Must share Supabase Auth with LC and EL (single auth project)
-- Must deploy to Vercel on `train-better.app` domain
+- Must deploy to Vercel on `readyall.org` domain
 - Must be responsive (mobile-first)
 
 ## Target Users

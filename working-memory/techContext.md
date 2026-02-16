@@ -8,7 +8,7 @@
 | Styling | TailwindCSS | 3.x |
 | Auth | Supabase Auth | Shared project |
 | Deployment | Vercel | — |
-| Domain | `train-better.app` | — |
+| Domain | `readyall.org` | — |
 
 ## Environment Variables (Expected)
 ```
@@ -21,7 +21,7 @@ NEXT_PUBLIC_EL_URL=https://erg.train-better.app
 ## Domains
 | App | Domain | Platform |
 |---|---|---|
-| Hub | `train-better.app` | Vercel |
+| Hub | `readyall.org` | Vercel |
 | LC | `log.train-better.app` | Vercel |
 | EL | `erg.train-better.app` | App Store / Play Store |
 

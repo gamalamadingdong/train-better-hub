@@ -9,7 +9,7 @@ type AuthPageProps = {
 };
 
 function normalizeReturnTo(raw: string | undefined): string {
-  const hubBase = process.env.NEXT_PUBLIC_HUB_URL || 'https://train-better.app';
+  const hubBase = process.env.NEXT_PUBLIC_HUB_URL || 'https://readyall.org';
 
   if (!raw) {
     return `${hubBase}/`;
@@ -26,7 +26,8 @@ function normalizeReturnTo(raw: string | undefined): string {
     const target = new URL(raw);
     const allowedOrigins = new Set<string>([
       new URL(hubBase).origin,
-      'https://train-better.app',
+      'https://readyall.org',
+      'https://www.readyall.org',
       'https://logbook.train-better.app',
       'https://logbook-companion.vercel.app',
     ]);
@@ -54,7 +55,7 @@ export default async function AuthPage({ searchParams }: AuthPageProps) {
   const currentHop = Number.parseInt(params.authHop ?? '0', 10);
 
   if (Number.isFinite(currentHop) && currentHop >= 3) {
-    redirect((process.env.NEXT_PUBLIC_HUB_URL || 'https://train-better.app') + '/?authError=loop');
+    redirect((process.env.NEXT_PUBLIC_HUB_URL || 'https://readyall.org') + '/?authError=loop');
   }
 
   const returnTo = normalizeReturnTo(params.returnTo);

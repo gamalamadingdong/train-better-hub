@@ -1,17 +1,30 @@
 # Active Context — Train Better Hub
 
-> Last updated: 2026-02-15
+> Last updated: 2026-02-16
 
-## Current State: Scaffolded + First Content Pass Complete
+## Current State: Scaffolded + Brand/Positioning Pass Updated
 
-The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. First content pass is complete for Home, Products, and Coaches with improved value proposition copy and clearer CTAs. Build verified clean.
+The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. Brand/domain messaging has been updated for ReadyAll (`readyall.org`) and core platform positioning is now explicit across Home, Products, Docs, Community, and Roadmap.
 
 ### What Exists
 - Next.js 16 App Router + TypeScript + TailwindCSS
 - 10 routes: `/`, `/products`, `/athletes`, `/coaches`, `/community`, `/docs`, `/roadmap`, `/feedback`, `/support`, `/_not-found`
-- Home, Products, Coaches pages now have upgraded messaging + clearer CTA language
+- Home, Products, Docs, Community, and Roadmap reflect ReadyAll positioning and transparency model
+- Major component messaging now includes: Logbook Companion, ErgLink, Rowing Workout Notation (RWN), workout templates, and coaching + roster workflows
+- Docs page now frames planned knowledge base focus: training plans, physiology, and technique
+- Home now includes a prominent "RWN + documentation essentials" spotlight section with direct links
+- Docs now includes anchored sections for RWN, workout templates, training plans, physiology, and technique
+- Docs sections are now filled with practical content extracted/synthesized from `LogbookCompanion/kb`
+- Docs now cites source material for key topics (Pete Plan, Wolverine Plan, physiology/zones, technique, injury prevention)
+- Community page now includes practical contribution pathways and transparency commitments
+- Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
+- Roadmap now includes a "References" subsection linking to key KB and planning sources
+- Unified auth verification pass completed before push: Hub LC fallback URLs normalized to `logbook.train-better.app` across CTA surfaces
+- Global metadata/header/footer brand labels updated to ReadyAll
+- Auth hub fallback URL now defaults to `https://readyall.org` with `readyall.org`/`www.readyall.org` in origin allowlist
 - Unified auth entry route `/auth` redirects to LC login with validated `returnTo`
 - Auth redirect allowlist includes new production domains and temporary legacy LC Vercel domain
+- Loop protection in `/auth` via `authHop` threshold and unsafe auth-path guardrails
 - Shared type convention: `src/lib/types/` (database, shared, supabase, barrel)
 - Supabase client wired (needs `.env` with real keys)
 - `.env.example` with all expected vars
@@ -22,17 +35,18 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - [x] Scaffold Next.js App Router project (TypeScript, TailwindCSS)
 - [x] Set up shared type convention (`src/lib/types/`)
 - [x] Create page stubs for IA
-- [ ] Configure Vercel deployment for `train-better.app`
+- [ ] Configure Vercel deployment for `readyall.org`
 - [ ] Wire up Supabase Auth (shared project) — add real env vars
-- [ ] Flesh out remaining page content (Athletes, Community, Docs, Roadmap, Feedback, Support)
+- [ ] Continue refining remaining page depth (Athletes, Feedback, Support)
 - [ ] Add baseline Hub analytics events for key CTAs (`open_logbook`, `open_erglink`, `open_docs`, `open_feedback`)
 - [ ] Add `next/link` navigation (replace `<a>` tags for internal links)
 - [ ] Mobile-responsive nav (hamburger menu)
 - [x] Unified auth execution (Phase 1 foundation): Hub `/auth` route + LC `returnTo` contract
-- [ ] Unified auth hardening: add loop protection and telemetry events
+- [x] Unified auth hardening: loop protection + redirect metadata propagation
+- [ ] Unified auth observability dashboarding (wire telemetry events into analytics sink)
 
 ### Blockers
-- None currently
+- Subdomain/domain alignment still pending for remaining app endpoints (LC/EL), currently still on legacy hostnames
 
 ### References
 - Architecture planning: `LogbookCompanion/working-memory/train-better-site-architecture.md`

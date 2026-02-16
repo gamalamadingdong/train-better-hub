@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Support — Train Better",
-  description: "Get help with Train Better products.",
+  title: "Support — ReadyAll",
+  description: "Get help with ReadyAll products.",
 };
 
 export default function SupportPage() {

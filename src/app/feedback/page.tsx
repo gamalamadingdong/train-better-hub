@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Feedback — Train Better",
+  title: "Feedback — ReadyAll",
   description: "Tell us what you need. Feature requests, bug reports, and ideas.",
 };
 

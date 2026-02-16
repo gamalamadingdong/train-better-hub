@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "For Athletes — Train Better",
+  title: "For Athletes — ReadyAll",
   description: "Track every meter, sync with Concept2, and see your progress.",
 };
 
@@ -10,8 +10,8 @@ export default function AthletesPage() {
     <div className="mx-auto max-w-7xl px-6 py-16">
       <h1 className="text-3xl font-bold">For Athletes</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
-        Whether you&apos;re training for a 2k test or logging steady state, Train
-        Better gives you the tools to track progress and improve.
+        Whether you&apos;re training for a 2k test or logging steady state, ReadyAll
+        gives you the tools to track progress and improve.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2">
