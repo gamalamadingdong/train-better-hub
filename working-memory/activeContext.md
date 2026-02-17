@@ -13,13 +13,30 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Major component messaging now includes: Logbook Companion, ErgLink, Rowing Workout Notation (RWN), workout templates, and coaching + roster workflows
 - Docs page now frames planned knowledge base focus: training plans, physiology, and technique
 - Home now includes a prominent "RWN + documentation essentials" spotlight section with direct links
+- Home now includes an explicit "Core platform pillars" prominence block: Logbook Companion, RWN, Coaching + Team Management, and Live Sessions (ErgLink)
+- User-facing terminology updated from "Products" to "Apps" (navigation + page heading/metadata), while retaining `/products` route for URL continuity
 - Docs now includes anchored sections for RWN, workout templates, training plans, physiology, and technique
+- Docs content has been intentionally simplified to a scaffolded "building in public" baseline (current/next/contribute framing per section) to invite community involvement while fundamentals are established
+- Docs page now includes an explicit visibility note that Hub Resources content is identical for logged-in and logged-out viewers (to reduce confusion with richer in-app authenticated surfaces)
+- Added dedicated `/rwn` page to document implemented RWN parser/playground capabilities (syntax modes, structures, guidance parameters, validation/normalization, examples) and rewired key RWN links from Home/Docs/Nav/Footer to this standalone reference
+- RWN reference examples are now grouped by playground categories (Basic, Pace, Advanced, Multi-Modal) with short descriptors to mirror validator UX
+- Resources docs now include deeper training guidance: expanded zone intent/detail and a dedicated training concepts + periodization section (macro/meso/microcycle framing and load progression basics)
+- Added a concrete 4-week build mesocycle example (with deload week) to make periodization guidance immediately actionable
+- ReadyAll theme behavior now aligns with Logbook Companion style: light-first default (no OS auto dark switch) with optional dark mode via `html.dark`, plus harmonized accent tokens
+- ReadyAll header now includes a live theme toggle wired to read/write `user_profiles.preferences.theme` (Supabase) for authenticated users, with local fallback storage and DB-preferred load precedence
 - Docs sections are now filled with practical content extracted/synthesized from `LogbookCompanion/kb`
 - Docs now cites source material for key topics (Pete Plan, Wolverine Plan, physiology/zones, technique, injury prevention)
-- Training-plan citations on `/docs` now prefer external public sources (Pete Plan public page, Row2k Wolverine context, archived Concept2 Wolverine reference, Concept2 plans index) instead of internal KB links
+- Training-plan citations on `/docs` now prefer external public sources (Pete Plan public page, Row2k Wolverine context, direct Wolverine Plan Scribd document, Concept2 plans index) instead of internal KB links
+- Additional `/docs` citations for physiology, zones/pacing, technique, and injury sections now point to external public sources (Concept2 training references + peer-reviewed open-access physiology overview)
 - Community page now includes practical contribution pathways and transparency commitments
 - Access policy clarified across public surfaces: reading resources/roadmap/backlog is public; login gates participation actions (voting/prioritization)
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
+- IA simplified for depth-first docs: top-level nav now removes Athletes/Coaches/RWN links, keeping Home + Apps + Docs + Community as primary discovery surfaces
+- Home page now folds athlete/coach utility messaging into consolidated on-page sections instead of separate audience pages
+- Docs page re-architected into a navigable documentation map with section depth/status tags (Live / Draft depth / Planned expansion)
+- Added a shared "Docs depth dashboard" component on both Home and Docs to make section maturity visible at a glance and reinforce depth-over-breadth content strategy
+- RWN is now positioned as a docs-domain topic (linked from Docs/Home docs pathways) rather than a primary global nav destination
+- Legacy audience URLs `/athletes` and `/coaches` now redirect to Home to preserve continuity while reducing top-level IA complexity
 - Roadmap now includes a "References" subsection linking to key KB and planning sources
 - Unified auth verification pass completed before push: Hub LC fallback URLs normalized to `logbook.train-better.app` across CTA surfaces
 - Final pre-push auth hardening: Hub auth fallback LC base now defaults to `https://logbook.readyall.org`; auth allowlist includes `https://logbook.readyall.org`; `.env.example` cross-app URLs aligned to readyall domains

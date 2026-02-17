@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -36,13 +37,7 @@ function Header() {
         </a>
         <div className="flex items-center gap-5 text-sm text-neutral-600 dark:text-neutral-300">
           <a href="/products" className="hover:text-neutral-950 dark:hover:text-white">
-            Products
-          </a>
-          <a href="/athletes" className="hover:text-neutral-950 dark:hover:text-white">
-            Athletes
-          </a>
-          <a href="/coaches" className="hover:text-neutral-950 dark:hover:text-white">
-            Coaches
+            Apps
           </a>
           <a href="/community" className="hover:text-neutral-950 dark:hover:text-white">
             Community
@@ -53,6 +48,7 @@ function Header() {
           <a href="/auth" className="hover:text-neutral-950 dark:hover:text-white">
             Sign In
           </a>
+          <ThemeToggle />
           <a
             href={process.env.NEXT_PUBLIC_LC_URL || "https://logbook.train-better.app"}
             className="rounded-md border border-neutral-300 bg-white px-4 py-2 text-neutral-900 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
@@ -73,6 +69,9 @@ function Footer() {
         <div className="mt-3 flex justify-center gap-5">
           <a href="/docs" className="hover:text-neutral-800 dark:hover:text-neutral-200">
             Docs
+          </a>
+          <a href="/community" className="hover:text-neutral-800 dark:hover:text-neutral-200">
+            Community
           </a>
           <a href="/roadmap" className="hover:text-neutral-800 dark:hover:text-neutral-200">
             Roadmap

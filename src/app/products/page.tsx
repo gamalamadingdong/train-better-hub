@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Products — ReadyAll",
+  title: "Apps — ReadyAll",
   description: "Logbook Companion, ErgLink, rowing workout notation, templates, and coaching workflows.",
 };
 
 export default function ProductsPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16">
-      <h1 className="text-3xl font-bold">Products</h1>
+      <h1 className="text-3xl font-bold">Apps</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
         ReadyAll brings together two apps plus shared systems: Logbook
         Companion, ErgLink, rowing workout notation, workout templates, and
         coaching + roster management.
       </p>
+
+      <div className="mt-6 rounded-lg border border-neutral-200 dark:border-neutral-800 p-5">
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          Current emphasis: establish strong foundations for Logbook Companion,
+          RWN, coaching/team management, and ErgLink live sessions, then iterate
+          depth with community feedback.
+        </p>
+      </div>
 
       <div className="mt-12 grid gap-12">
         <section id="logbook-companion">

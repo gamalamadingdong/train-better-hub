@@ -10,9 +10,9 @@ export default function CommunityPage() {
     <div className="mx-auto max-w-7xl px-6 py-16">
       <h1 className="text-3xl font-bold">Community</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
-        ReadyAll is built in public. Reading roadmap, backlog, and resources is
-        open to everyone; logged-in users can vote and participate in feature
-        prioritization.
+        ReadyAll is built in public. Reading roadmap, backlog, and docs is open
+        to everyone; signed-in users can participate in prioritization and
+        contribute structured feedback.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -47,25 +47,49 @@ export default function CommunityPage() {
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <section className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6">
-          <h2 className="text-lg font-semibold">Useful ways to contribute</h2>
+          <h2 className="text-lg font-semibold">How people can interact</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-600 dark:text-neutral-400">
-            <li>Vote on backlog items that affect your day-to-day coaching or training.</li>
-            <li>Submit reproducible workflow feedback with context and expected behavior.</li>
-            <li>Request missing docs topics (plans, zones, physiology, technique).</li>
-            <li>Share practical examples from your own sessions for validation.</li>
+            <li>Vote on roadmap and backlog priorities that affect daily coaching/training work.</li>
+            <li>Request or refine documentation sections with concrete examples.</li>
+            <li>Submit reproducible workflow reports: context, steps, expected outcome.</li>
+            <li>Join community review loops for RWN, zones, and training progression guidance.</li>
           </ul>
         </section>
 
         <section className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6">
-          <h2 className="text-lg font-semibold">Transparency commitments</h2>
+          <h2 className="text-lg font-semibold">Participation model</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-600 dark:text-neutral-400">
             <li>Roadmap and backlog stay public, regardless of login status.</li>
-            <li>Feature voting is available to signed-in users as prioritization signal.</li>
-            <li>Resources evolve from community requests and published implementation progress.</li>
-            <li>Open-source development remains visible through public issue tracking.</li>
+            <li>Voting and prioritization actions are authenticated to keep signal quality high.</li>
+            <li>Docs sections grow through request volume + demonstrated user need.</li>
+            <li>Implementation status remains visible through public issue tracking.</li>
           </ul>
         </section>
       </div>
+
+      <section className="mt-8 rounded-lg border border-neutral-200 dark:border-neutral-800 p-6">
+        <h2 className="text-lg font-semibold">Suggested community program structure</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg border border-neutral-200 dark:border-neutral-700 p-4">
+            <h3 className="font-medium">Docs Guild</h3>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              Monthly focus: deepen one docs section (for example zones or periodization) with examples and edge cases.
+            </p>
+          </div>
+          <div className="rounded-lg border border-neutral-200 dark:border-neutral-700 p-4">
+            <h3 className="font-medium">Workflow Lab</h3>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              Structured feedback cycles on real coach/athlete flows: assignments, session execution, and review.
+            </p>
+          </div>
+          <div className="rounded-lg border border-neutral-200 dark:border-neutral-700 p-4">
+            <h3 className="font-medium">RWN Working Group</h3>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              Validate notation clarity, parser behavior, and practical examples before expanding syntax guidance.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <div className="mt-8 grid gap-8 md:grid-cols-3">
         <a
@@ -98,7 +122,7 @@ export default function CommunityPage() {
         >
           <h3 className="text-lg font-semibold">Sign In to Participate</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Sign in to vote on features and help prioritize upcoming releases.
+            Sign in to vote, prioritize docs depth, and contribute to review loops.
           </p>
         </a>
       </div>

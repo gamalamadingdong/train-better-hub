@@ -1,3 +1,5 @@
+import { DocsDepthDashboard } from "@/components/DocsDepthDashboard";
+
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16">
@@ -35,6 +37,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mt-14 rounded-2xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-950">
+        <h2 className="text-2xl font-semibold">Core platform pillars</h2>
+        <p className="mt-3 max-w-3xl text-neutral-600 dark:text-neutral-400">
+          These are the core pieces we&apos;re prioritizing and expanding in public.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="/products#logbook-companion" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Logbook Companion →
+          </a>
+          <a href="/docs#rwn" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Rowing Workout Notation (RWN) →
+          </a>
+          <a href="/products#platform-components" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Coaching + Team Management →
+          </a>
+          <a href="/products#erglink" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
+            Live Sessions (ErgLink) →
+          </a>
+        </div>
+      </section>
+
       <section className="mt-14 grid gap-8 md:grid-cols-2">
         <ProductCard
           title="Logbook Companion"
@@ -59,7 +82,7 @@ export default function Home() {
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <a href="/docs#rwn" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
-            RWN Overview →
+            RWN Reference in Docs →
           </a>
           <a href="/docs#templates" className="rounded-lg border border-neutral-300 p-4 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
             Workout Templates →
@@ -79,25 +102,34 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="mt-14">
+        <DocsDepthDashboard
+          title="Documentation progress at a glance"
+          description="Use this to see what is already deep, what is growing next, and where community requests can have the most impact."
+        />
+      </div>
+
       <section className="mt-14 grid gap-8 lg:grid-cols-3">
         <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
           <h3 className="text-lg font-semibold">For Athletes</h3>
-          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Track meters, monitor progress, and keep your training history clean
-            and usable.
-          </p>
-          <a href="/athletes" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
-            Explore athlete workflows →
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-neutral-600 dark:text-neutral-400">
+            <li>Track meters, tests, and consistency over time.</li>
+            <li>Use templates + RWN to keep sessions structured and reusable.</li>
+            <li>Review zones and periodization guidance in Docs.</li>
+          </ul>
+          <a href="/docs" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
+            Athlete docs path →
           </a>
         </div>
         <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
           <h3 className="text-lg font-semibold">For Coaches</h3>
-          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Manage squads, assignments, scores, notes, and boatings without
-            spreadsheet sprawl.
-          </p>
-          <a href="/coaches" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
-            Explore coach workflows →
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-neutral-600 dark:text-neutral-400">
+            <li>Coordinate squad assignments, notes, and boatings in one flow.</li>
+            <li>Use common workout language (RWN) across team planning.</li>
+            <li>Apply load concepts and mesocycle structure from Docs.</li>
+          </ul>
+          <a href="/docs" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
+            Coach docs path →
           </a>
         </div>
         <div className="rounded-xl border border-neutral-200 bg-white p-7 dark:border-neutral-800 dark:bg-neutral-950">
@@ -107,7 +139,7 @@ export default function Home() {
             practical implementation resources.
           </p>
           <a href="/docs" className="mt-4 inline-block text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200">
-            Browse resources →
+            Browse the docs map →
           </a>
         </div>
       </section>
