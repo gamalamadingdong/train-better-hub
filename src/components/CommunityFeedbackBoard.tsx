@@ -36,28 +36,10 @@ const PRODUCT_AREA_OPTIONS: { value: ProductArea; label: string }[] = [
   { value: 'rwn', label: 'RWN' },
 ];
 
-const AUTH_HINT_STORAGE_KEY = 'readyall_auth_hint';
-
-function readAuthHintFromStorage(): boolean {
-  if (typeof window === 'undefined') return false;
-  return window.localStorage.getItem(AUTH_HINT_STORAGE_KEY) === 'true';
-}
-
-function consumeAuthHintFromQuery(): boolean {
-  if (typeof window === 'undefined') return false;
-  const url = new URL(window.location.href);
-  const authState = url.searchParams.get('authState');
-  if (authState !== 'signedIn') return false;
-  url.searchParams.delete('authState');
-  window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
-  return true;
-}
-
 export function CommunityFeedbackBoard() {
   const [items, setItems] = useState<CommunityItem[]>([]);
   const [votes, setVotes] = useState<VoteRow[]>([]);
   const [userId, setUserId] = useState<string | null>(null);
-  const [hasAuthHint, setHasAuthHint] = useState(false);
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [itemType, setItemType] = useState<(typeof ITEM_TYPE_OPTIONS)[number]['value']>('feature');
@@ -84,19 +66,8 @@ export function CommunityFeedbackBoard() {
 
     const load = async () => {
       setLoading(true);
-      const queryHint = consumeAuthHintFromQuery();
-      const storedHint = readAuthHintFromStorage();
-
       const { data: sessionData } = await supabase.auth.getSession();
       const nextUserId = sessionData.session?.user?.id ?? null;
-
-      if (typeof window !== 'undefined') {
-        if (nextUserId) {
-          window.localStorage.removeItem(AUTH_HINT_STORAGE_KEY);
-        } else if (queryHint || storedHint) {
-          window.localStorage.setItem(AUTH_HINT_STORAGE_KEY, 'true');
-        }
-      }
 
       const [{ data: itemRows, error: itemError }, { data: voteRows, error: voteError }] = await Promise.all([
         supabase
@@ -113,7 +84,6 @@ export function CommunityFeedbackBoard() {
       if (!mounted) return;
 
       setUserId(nextUserId);
-  setHasAuthHint(Boolean(queryHint || storedHint) && !nextUserId);
 
       if (itemError || voteError) {
         setStatusMessage('Unable to load community items right now.');
@@ -232,11 +202,9 @@ export function CommunityFeedbackBoard() {
 
         {!userId ? (
           <div className="mt-4 rounded-md border border-neutral-200 bg-neutral-50 p-3 text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
-            {hasAuthHint
-              ? 'You are marked signed-in via app handoff, but this browser does not have an active Hub session yet. Complete sign-in here to enable submit and vote.'
-              : 'Read access is open. Sign in to submit or vote on community priorities.'}
+            Read access is open. Sign in to submit or vote on community priorities.
             <a href="/auth?returnTo=/feedback" className="ml-2 font-medium hover:underline">
-              {hasAuthHint ? 'Complete sign-in →' : 'Sign in →'}
+              Sign in →
             </a>
           </div>
         ) : null}

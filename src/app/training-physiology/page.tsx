@@ -41,20 +41,15 @@ export default function TrainingPhysiologyPage() {
       {/* ─── Sticky subnav ───────────────────────────────────────────────── */}
       <nav className="sticky top-20 z-10 mt-6 rounded-lg border border-neutral-200 bg-white/95 p-3 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95">
         <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
-          <a href="#zones" className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Zones &amp; Pacing</a>
           <a href="#physiology" className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Physiology</a>
+          <a href="#zones" className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Zones &amp; Pacing</a>
           <a href="#power-profile" className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Power Profile</a>
           <a href="#planning" className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">Planning</a>
         </div>
       </nav>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 1 — TRAINING ZONES WITH PACING (interactive client component)
-      ═══════════════════════════════════════════════════════════════════ */}
-      <TrainingZonesInteractive />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 1b — ENERGY SYSTEMS & PHYSIOLOGY (server-rendered context)
+          SECTION 1 — ENERGY SYSTEMS & PHYSIOLOGY (server-rendered context)
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="physiology" className="mt-12 space-y-6">
         <div className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
@@ -397,7 +392,14 @@ export default function TrainingPhysiologyPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          SECTION 2 — POWER PROFILE / POWER-DURATION
+          SECTION 2 — TRAINING ZONES WITH PACING (interactive client component)
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section id="zones" className="mt-12">
+        <TrainingZonesInteractive />
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          SECTION 3 — POWER PROFILE / POWER-DURATION
       ═══════════════════════════════════════════════════════════════════ */}
       <section id="power-profile" className="mt-12 space-y-6">
         <div className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
