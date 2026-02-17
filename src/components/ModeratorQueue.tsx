@@ -6,6 +6,7 @@ import { supabase } from '@/lib/types/supabase';
 type CommunityItemRow = {
   id: string;
   user_id: string;
+  product_area: string;
   item_type: string;
   title: string;
   details: string;
@@ -79,7 +80,7 @@ export function ModeratorQueue() {
 
     const { data: itemRows, error: itemError } = await supabase
       .from('community_items')
-      .select('id, user_id, item_type, title, details, status, moderation_note, created_at, moderated_at')
+      .select('id, user_id, product_area, item_type, title, details, status, moderation_note, created_at, moderated_at')
       .order('created_at', { ascending: false })
       .limit(100);
 
@@ -178,9 +179,14 @@ export function ModeratorQueue() {
             <li key={item.id} className="rounded-lg border border-neutral-200 p-4 dark:border-neutral-800">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-sm font-semibold">{item.title}</p>
-                <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
-                  {item.item_type}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
+                    {item.product_area.replace('_', ' ')}
+                  </span>
+                  <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
+                    {item.item_type}
+                  </span>
+                </div>
               </div>
 
               <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{item.details}</p>

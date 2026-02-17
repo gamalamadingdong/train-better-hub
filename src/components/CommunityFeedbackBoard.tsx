@@ -6,6 +6,7 @@ import { supabase } from '@/lib/types/supabase';
 type CommunityItem = {
   id: string;
   user_id: string;
+  product_area: ProductArea;
   item_type: string;
   title: string;
   details: string;
@@ -18,6 +19,8 @@ type VoteRow = {
   user_id: string;
 };
 
+type ProductArea = 'readyall_hub' | 'logbook_companion' | 'erg_link' | 'rwn';
+
 const ITEM_TYPE_OPTIONS = [
   { value: 'feature', label: 'Feature' },
   { value: 'bug', label: 'Bug' },
@@ -26,13 +29,39 @@ const ITEM_TYPE_OPTIONS = [
   { value: 'workflow', label: 'Workflow Report' },
 ] as const;
 
+const PRODUCT_AREA_OPTIONS: { value: ProductArea; label: string }[] = [
+  { value: 'readyall_hub', label: 'ReadyAll Community Hub' },
+  { value: 'logbook_companion', label: 'Logbook Companion' },
+  { value: 'erg_link', label: 'ErgLink' },
+  { value: 'rwn', label: 'RWN' },
+];
+
+const AUTH_HINT_STORAGE_KEY = 'readyall_auth_hint';
+
+function readAuthHintFromStorage(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.localStorage.getItem(AUTH_HINT_STORAGE_KEY) === 'true';
+}
+
+function consumeAuthHintFromQuery(): boolean {
+  if (typeof window === 'undefined') return false;
+  const url = new URL(window.location.href);
+  const authState = url.searchParams.get('authState');
+  if (authState !== 'signedIn') return false;
+  url.searchParams.delete('authState');
+  window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+  return true;
+}
+
 export function CommunityFeedbackBoard() {
   const [items, setItems] = useState<CommunityItem[]>([]);
   const [votes, setVotes] = useState<VoteRow[]>([]);
   const [userId, setUserId] = useState<string | null>(null);
+  const [hasAuthHint, setHasAuthHint] = useState(false);
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
   const [itemType, setItemType] = useState<(typeof ITEM_TYPE_OPTIONS)[number]['value']>('feature');
+  const [productArea, setProductArea] = useState<ProductArea>('readyall_hub');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -55,13 +84,24 @@ export function CommunityFeedbackBoard() {
 
     const load = async () => {
       setLoading(true);
-      const { data: authData } = await supabase.auth.getUser();
-      const nextUserId = authData.user?.id ?? null;
+      const queryHint = consumeAuthHintFromQuery();
+      const storedHint = readAuthHintFromStorage();
+
+      const { data: sessionData } = await supabase.auth.getSession();
+      const nextUserId = sessionData.session?.user?.id ?? null;
+
+      if (typeof window !== 'undefined') {
+        if (nextUserId) {
+          window.localStorage.removeItem(AUTH_HINT_STORAGE_KEY);
+        } else if (queryHint || storedHint) {
+          window.localStorage.setItem(AUTH_HINT_STORAGE_KEY, 'true');
+        }
+      }
 
       const [{ data: itemRows, error: itemError }, { data: voteRows, error: voteError }] = await Promise.all([
         supabase
           .from('community_items')
-          .select('id, user_id, item_type, title, details, status, created_at')
+          .select('id, user_id, product_area, item_type, title, details, status, created_at')
           .order('created_at', { ascending: false })
           .limit(50),
         supabase
@@ -73,6 +113,7 @@ export function CommunityFeedbackBoard() {
       if (!mounted) return;
 
       setUserId(nextUserId);
+  setHasAuthHint(Boolean(queryHint || storedHint) && !nextUserId);
 
       if (itemError || voteError) {
         setStatusMessage('Unable to load community items right now.');
@@ -110,6 +151,7 @@ export function CommunityFeedbackBoard() {
 
     const { error } = await supabase.from('community_items').insert({
       user_id: userId,
+      product_area: productArea,
       item_type: itemType,
       title: title.trim(),
       details: details.trim(),
@@ -124,11 +166,12 @@ export function CommunityFeedbackBoard() {
     setTitle('');
     setDetails('');
     setItemType('feature');
+    setProductArea('readyall_hub');
     setStatusMessage('Submitted. Your item is now pending moderator review.');
 
     const { data: itemRows } = await supabase
       .from('community_items')
-      .select('id, user_id, item_type, title, details, status, created_at')
+      .select('id, user_id, product_area, item_type, title, details, status, created_at')
       .order('created_at', { ascending: false })
       .limit(50);
 
@@ -189,14 +232,32 @@ export function CommunityFeedbackBoard() {
 
         {!userId ? (
           <div className="mt-4 rounded-md border border-neutral-200 bg-neutral-50 p-3 text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
-            Read access is open. Sign in to submit or vote on community priorities.
+            {hasAuthHint
+              ? 'You are marked signed-in via app handoff, but this browser does not have an active Hub session yet. Complete sign-in here to enable submit and vote.'
+              : 'Read access is open. Sign in to submit or vote on community priorities.'}
             <a href="/auth?returnTo=/feedback" className="ml-2 font-medium hover:underline">
-              Sign in →
+              {hasAuthHint ? 'Complete sign-in →' : 'Sign in →'}
             </a>
           </div>
         ) : null}
 
         <form className="mt-4 grid gap-4" onSubmit={handleSubmit}>
+          <label className="grid gap-1 text-sm">
+            <span className="font-medium">Product area</span>
+            <select
+              value={productArea}
+              onChange={(event) => setProductArea(event.target.value as ProductArea)}
+              disabled={!userId || isSubmitting}
+              className="rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900"
+            >
+              {PRODUCT_AREA_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <label className="grid gap-1 text-sm">
             <span className="font-medium">Type</span>
             <select
@@ -270,9 +331,14 @@ export function CommunityFeedbackBoard() {
                 <li key={item.id} className="rounded-md border border-neutral-200 p-4 dark:border-neutral-800">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="text-sm font-semibold">{item.title}</p>
-                    <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
-                      {item.item_type}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
+                        {item.product_area.replace('_', ' ')}
+                      </span>
+                      <span className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] uppercase tracking-wide dark:border-neutral-700">
+                        {item.item_type}
+                      </span>
+                    </div>
                   </div>
                   <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{item.details}</p>
                   <div className="mt-3 flex items-center gap-3">
