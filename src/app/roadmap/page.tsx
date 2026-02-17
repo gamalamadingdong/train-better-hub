@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StrategicRoadmap } from "@/components/StrategicRoadmap";
 
 export const metadata: Metadata = {
   title: "Roadmap — ReadyAll",
@@ -30,6 +31,8 @@ export default function RoadmapPage() {
           for implementation transparency.
         </p>
       </div>
+
+      <StrategicRoadmap />
 
       <section className="tb-soft-card mt-10 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
         <h2 className="text-xl font-semibold">References</h2>

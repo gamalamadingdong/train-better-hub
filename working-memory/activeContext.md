@@ -37,6 +37,7 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Added moderator-only queue UI at `/community/moderation` (`ModeratorQueue`) for status updates (`pending`, `in_review`, `approved`, `rejected`, `implemented`) and moderation notes
 - Community requests now capture `product_area` (`readyall_hub`, `logbook_companion`, `erg_link`, `rwn`) at DB + form level for clearer routing/prioritization
 - Feedback board auth UX now distinguishes real Hub session from app handoff hint: anonymous users remain read-only, and users with only auth hint are prompted to complete sign-in before write actions
+- Roadmap page now includes a dedicated strategic-areas component (`StrategicRoadmap`) outlining major tracks, current status (Active/Next/Planned), and now/next intent per area
 - Access policy clarified across public surfaces: reading resources/roadmap/backlog is public; login gates participation actions (voting/prioritization)
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
 - IA simplified for depth-first docs: top-level nav now removes Athletes/Coaches/RWN links, keeping Home + Apps + Docs + Community as primary discovery surfaces
