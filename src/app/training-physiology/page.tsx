@@ -689,7 +689,7 @@ export default function TrainingPhysiologyPage() {
           <h3 className="text-lg font-semibold">Weekly Microcycle Structure</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
             A well-structured week buffers quality (hard) sessions with sufficient recovery. Here&apos;s an example
-            build-phase microcycle for a sculler training 6–7 sessions per week:
+            build-phase microcycle — six sessions in seven days with one full rest day:
           </p>
           <div className="mt-4 overflow-x-auto rounded-lg border border-neutral-200 dark:border-neutral-700">
             <table className="w-full text-left text-xs">
@@ -703,13 +703,12 @@ export default function TrainingPhysiologyPage() {
               </thead>
               <tbody>
                 {[
-                  { day: "Mon AM", session: "16km steady-state", zone: "UT2", purpose: "Base volume + technique" },
-                  { day: "Mon PM", session: "Weights (strength)", zone: "—", purpose: "Strength maintenance" },
+                  { day: "Mon", session: "10km steady-state", zone: "UT2", purpose: "Base volume + technique" },
                   { day: "Tue", session: "3×10:00 / 3:00r", zone: "AT", purpose: "Threshold development" },
-                  { day: "Wed", session: "20km steady-state", zone: "UT1", purpose: "Moderate aerobic pressure" },
+                  { day: "Wed", session: "12km steady-state", zone: "UT1", purpose: "Moderate aerobic pressure" },
                   { day: "Thu", session: "5×4:00 / 4:00r", zone: "TR", purpose: "VO₂max intervals" },
-                  { day: "Fri", session: "12km easy or rest", zone: "UT2 / Off", purpose: "Recovery" },
-                  { day: "Sat", session: "2×1500m race-pace", zone: "AN/TR", purpose: "Speed sharpening" },
+                  { day: "Fri", session: "Rest", zone: "—", purpose: "Recovery" },
+                  { day: "Sat", session: "8×500m / 3:30r", zone: "AN/TR", purpose: "Speed & anaerobic power" },
                   { day: "Sun", session: "20–30km long row", zone: "UT2", purpose: "Aerobic base" },
                 ].map((row) => (
                   <tr key={row.day} className="border-t border-neutral-200 dark:border-neutral-800">

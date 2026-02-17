@@ -29,7 +29,7 @@ export default function SupportPage() {
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
             Report bugs or ask questions on{" "}
             <a
-              href="https://github.com/gamalamadingdong/logbook-companion/issues"
+              href="https://github.com/gamalamadingdong/readyall/issues"
               target="_blank"
               rel="noopener noreferrer"
               className="text-indigo-600 hover:underline"

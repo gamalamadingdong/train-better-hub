@@ -27,7 +27,7 @@ This project is part of a **multi-app workspace**. All three apps share a single
 |---|---|---|---|---|---|
 | `LogbookCompanion/` | **LC** | `gamalamadingdong/logbook-companion` | React + Vite SPA, TypeScript, TailwindCSS | Vercel (`log.train-better.app`) | Workout logging, RWN, templates, C2 sync, analytics, coaching module |
 | `erg-link/` | **EL** | `gamalamadingdong/erg-link` | Capacitor + React, TypeScript, TailwindCSS | App Store / Play Store | Mobile app — PM5 Bluetooth relay, live racing, interval programming |
-| `train-better-hub/` | **Hub** | `gamalamadingdong/train-better-hub` | Next.js (App Router), TypeScript, TailwindCSS | Vercel (`train-better.app`) | Umbrella site — docs, community, roadmap, feedback, auth landing, product routing |
+| `readyall/` | **Hub** | `gamalamadingdong/readyall` | Next.js (App Router), TypeScript, TailwindCSS | Vercel (`readyall.org`) | Umbrella site — docs, community, roadmap, feedback, auth landing, product routing |
 
 ### Shared Infrastructure
 

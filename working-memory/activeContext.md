@@ -1,6 +1,6 @@
 # Active Context — Train Better Hub
 
-> Last updated: 2026-02-16
+> Last updated: 2026-02-17
 
 ## Current State: Scaffolded + Brand/Positioning Pass Updated
 
@@ -29,6 +29,12 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Training-plan citations on `/docs` now prefer external public sources (Pete Plan public page, Row2k Wolverine context, direct Wolverine Plan Scribd document, Concept2 plans index) instead of internal KB links
 - Additional `/docs` citations for physiology, zones/pacing, technique, and injury sections now point to external public sources (Concept2 training references + peer-reviewed open-access physiology overview)
 - Community page now includes practical contribution pathways and transparency commitments
+- Community/roadmap/feedback/docs participation copy now aligned to a ReadyAll-native contribution model (non-GitHub-first) with GitHub positioned as optional implementation transparency mirror
+- Community program naming updated from `Docs Guild` to `Docs Stewardship Group`
+- Supabase migration added role-based moderation foundation: `public.user_has_role(required_role text)` + `community_items` + `community_votes` tables with RLS for public approved visibility, authenticated submission/voting, and moderator update access
+- Legacy hard-coded admin UUID policies on `user_feedback` replaced by role-based moderator policies (`content_moderator` / `admin` via `user_profiles.roles`)
+- Feedback page now includes first ReadyAll-native contribution surface with moderated submission intake + published-priority voting (`CommunityFeedbackBoard`)
+- Added moderator-only queue UI at `/community/moderation` (`ModeratorQueue`) for status updates (`pending`, `in_review`, `approved`, `rejected`, `implemented`) and moderation notes
 - Access policy clarified across public surfaces: reading resources/roadmap/backlog is public; login gates participation actions (voting/prioritization)
 - Navigation now labels `/docs` explicitly as "Docs" for clearer discoverability
 - IA simplified for depth-first docs: top-level nav now removes Athletes/Coaches/RWN links, keeping Home + Apps + Docs + Community as primary discovery surfaces
@@ -47,6 +53,7 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Added Hub auth-status visibility after LC round-trip: new header `AuthStatus` component checks Supabase user and an `authState=signedIn` handoff hint, so the UI no longer remains static on "Sign In" after successful redirect flow
 - Products page LC CTA is now auth-aware: if signed in, link targets LC home (`/`); if not signed in, link targets LC public `about` page (`/about`)
 - Header `Open App` CTA now uses the same auth-aware LC routing logic as Products (signed in → `/`, signed out → `/about`) for consistent behavior site-wide
+- Community-facing GitHub tracking links (feedback, support, community issue tracker, roadmap board placeholder) now point to `gamalamadingdong/readyall` so Hub work is tracked in the Hub repo
 - Docs index layout redesigned to remove redundancy and awkward "docs depth dashboard" wording: now framed as `Documentation Progress` + `Current Tracks` + `Future Expansion Model` + contribution CTAs, while preserving two-track depth-first architecture
 - Updated RWN validator CTA to deep-link into LC docs playground tab (`/docs?tab=rwn&rwnSubTab=playground`) once LC tab-linking support landed
 - RWN is now positioned as a docs-domain topic (linked from Docs/Home docs pathways) rather than a primary global nav destination
@@ -89,4 +96,4 @@ The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, Tail
 - Phased roadmap: `LogbookCompanion/working-memory/train-better-change-roadmap-spec.md`
 - Domain rollout: `LogbookCompanion/working-memory/domain-rollout-plan.md`
 - Unified auth plan: `working-memory/unified-auth-plan.md`
-- GitHub issues: Epics #7-#11, Phase A #12-#19, Phase B #20-#29 (in `logbook-companion` repo)
+- GitHub issues: ReadyAll Hub tracking now lives in `gamalamadingdong/readyall` (primary backlog + roadmap issue stream)

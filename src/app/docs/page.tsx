@@ -81,14 +81,14 @@ export default function DocsPage() {
       <section className="tb-soft-card mt-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
         <h2 className="text-xl font-semibold">Contribute to Documentation</h2>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-          If a topic feels thin, request depth or submit practical examples so we can improve signal, not just page count.
+          If a topic feels thin, request depth or submit practical examples through ReadyAll-native contribution flows so we improve signal, not just page count.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <a href="/feedback" className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
             Request coverage
           </a>
           <a href="/community" className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900">
-            Join docs discussion
+            Join docs stewardship
           </a>
         </div>
       </section>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Community — ReadyAll",
-  description: "Roadmap, feature requests, and community resources.",
+  description: "ReadyAll-native community participation for roadmap, docs depth, and product direction.",
 };
 
 export default function CommunityPage() {
@@ -11,8 +11,8 @@ export default function CommunityPage() {
       <h1 className="text-3xl font-bold">Community</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
         ReadyAll is for building a community of rowing enthusiasts who learn
-        freely, share practical resources, and improve the knowledge base
-        together over time.
+        freely, share practical resources, and shape product and documentation
+        direction together over time.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -22,7 +22,7 @@ export default function CommunityPage() {
         >
           <h3 className="text-lg font-semibold">Public Roadmap</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            See what&apos;s planned, in progress, and shipped with full transparency.
+            See what&apos;s planned, in progress, and shipped with clear status and public rationale.
           </p>
         </a>
         <a
@@ -31,7 +31,7 @@ export default function CommunityPage() {
         >
           <h3 className="text-lg font-semibold">Feature Requests</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Submit ideas and, when signed in, vote on what matters most.
+            Submit ideas in ReadyAll and, when signed in, vote on what matters most.
           </p>
         </a>
         <a
@@ -40,7 +40,7 @@ export default function CommunityPage() {
         >
           <h3 className="text-lg font-semibold">Knowledge Base</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Use the public training docs for plans, zones, technique, and injury prevention.
+            Use public training docs and request deeper coverage where practical guidance is still thin.
           </p>
         </a>
       </div>
@@ -49,11 +49,12 @@ export default function CommunityPage() {
         <section className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6">
           <h2 className="text-lg font-semibold">How people can interact</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-600 dark:text-neutral-400">
-            <li>Vote on roadmap and backlog priorities that affect daily coaching/training work.</li>
-            <li>Request or refine documentation sections with concrete examples.</li>
+            <li>Submit roadmap and docs-depth requests directly in ReadyAll.</li>
+            <li>Vote on priorities that affect daily coaching and training workflows.</li>
+            <li>Request or refine documentation sections with concrete examples and edge cases.</li>
             <li>Contribute high-quality external resources and context on why they matter.</li>
-            <li>Submit reproducible workflow reports: context, steps, expected outcome.</li>
-            <li>Join community review loops for RWN, zones, and training progression guidance.</li>
+            <li>Submit reproducible workflow reports with context, steps, and expected outcome.</li>
+            <li>Join review loops for RWN, zones, and progression guidance before major updates.</li>
           </ul>
         </section>
 
@@ -63,8 +64,9 @@ export default function CommunityPage() {
             <li>Resources stay open for everyone to read and learn from.</li>
             <li>Roadmap and backlog stay public, regardless of login status.</li>
             <li>Voting and prioritization actions are authenticated to keep signal quality high.</li>
-            <li>Docs sections grow through request volume + demonstrated user need.</li>
-            <li>Implementation status and evolution remain visible through public issue tracking.</li>
+            <li>New submissions are reviewed before publishing to keep quality and relevance high.</li>
+            <li>Docs sections grow through request volume and demonstrated user need.</li>
+            <li>Implementation progress can still be mirrored to public issues for engineering transparency.</li>
           </ul>
         </section>
       </div>
@@ -73,7 +75,7 @@ export default function CommunityPage() {
         <h2 className="text-lg font-semibold">Suggested community program structure</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="rounded-lg border border-neutral-200 dark:border-neutral-700 p-4">
-            <h3 className="font-medium">Docs Guild</h3>
+            <h3 className="font-medium">Docs Stewardship Group</h3>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               Monthly focus: deepen one docs section (for example zones or periodization) with examples and edge cases.
             </p>
@@ -107,14 +109,12 @@ export default function CommunityPage() {
         </a>
 
         <a
-          href="https://github.com/gamalamadingdong/logbook-companion/issues"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/feedback"
           className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-6 hover:border-indigo-500 transition-colors"
         >
-          <h3 className="text-lg font-semibold">Issue Tracker</h3>
+          <h3 className="text-lg font-semibold">Community Contributions</h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Review active work, labels, and implementation status in public.
+            Open or review contribution items in ReadyAll and help prioritize what ships next.
           </p>
         </a>
 

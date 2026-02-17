@@ -1,5 +1,5 @@
 {
-  "name": "train-better-hub",
+  "name": "readyall",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gamalamadingdong/train-better-hub.git"
+    "url": "git+https://github.com/gamalamadingdong/readyall.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gamalamadingdong/train-better-hub/issues"
+    "url": "https://github.com/gamalamadingdong/readyall/issues"
   },
-  "homepage": "https://github.com/gamalamadingdong/train-better-hub#readme",
+  "homepage": "https://github.com/gamalamadingdong/readyall#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
     "next": "^16.1.6",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Roadmap — ReadyAll",
-  description: "See what's planned, in progress, and shipped.",
+  description: "See what is planned, in progress, and shipped with community-informed prioritization.",
 };
 
 export default function RoadmapPage() {
@@ -11,22 +11,23 @@ export default function RoadmapPage() {
       <h1 className="text-3xl font-bold">Roadmap</h1>
       <p className="mt-4 text-neutral-600 dark:text-neutral-400">
         What we&apos;re building and where we&apos;re headed. This roadmap and backlog
-        stay public for full transparency and are shaped by community feedback.
+        stay public for full transparency and are shaped by ReadyAll community input.
       </p>
 
       <div className="mt-12">
         <p className="text-neutral-500">
-          Public roadmap board with voting is coming next. Signed-in users will
-          be able to vote on priorities. In the meantime, check out the{" "}
+          Roadmap prioritization is moving to a ReadyAll-native model so athletes
+          and coaches can weigh in without a coding workflow. Engineering execution
+          can still be mirrored publicly when needed in the{" "}
           <a
-            href="https://github.com/gamalamadingdong/logbook-companion/issues"
+            href="https://github.com/gamalamadingdong/readyall/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-600 hover:underline"
           >
-            GitHub issues
+            GitHub issue tracker
           </a>{" "}
-          for current work.
+          for implementation transparency.
         </p>
       </div>
 
