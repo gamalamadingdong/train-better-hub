@@ -1,23 +1,15 @@
 type DepthStatus = 'live' | 'draft' | 'planned';
 
 type DocsSection = {
-  id: string;
+  href: string;
   label: string;
   depth: string;
   status: DepthStatus;
 };
 
 const sections: DocsSection[] = [
-  { id: 'getting-started', label: 'Getting started', depth: 'Depth 4/5', status: 'live' },
-  { id: 'rwn', label: 'RWN reference', depth: 'Depth 4/5', status: 'live' },
-  { id: 'zones', label: 'Training zones + pacing', depth: 'Depth 3/5', status: 'live' },
-  { id: 'training-concepts', label: 'Training concepts + periodization', depth: 'Depth 3/5', status: 'live' },
-  { id: 'training-plans', label: 'Training plans', depth: 'Depth 2/5', status: 'draft' },
-  { id: 'physiology', label: 'Physiology fundamentals', depth: 'Depth 2/5', status: 'draft' },
-  { id: 'technique', label: 'Technique progression', depth: 'Depth 2/5', status: 'draft' },
-  { id: 'injury-prevention', label: 'Injury prevention', depth: 'Depth 2/5', status: 'draft' },
-  { id: 'coaching-ops', label: 'Coaching + team ops', depth: 'Depth 1/5', status: 'planned' },
-  { id: 'erglink-workflows', label: 'ErgLink workflows', depth: 'Depth 1/5', status: 'planned' },
+  { href: '/rwn', label: 'RWN reference', depth: 'Depth 5/5', status: 'live' },
+  { href: '/training-physiology', label: 'Training & Physiology', depth: 'Depth 3/5', status: 'draft' },
 ];
 
 const statusClassMap: Record<DepthStatus, string> = {
@@ -34,7 +26,7 @@ const statusLabelMap: Record<DepthStatus, string> = {
 
 export function DocsDepthDashboard({
   title = 'Docs depth dashboard',
-  description = 'Track which sections are mature now and where deeper content is planned next.',
+  description = 'We are building one section at a time. RWN is complete; Training & Physiology is the active expansion track.',
 }: {
   title?: string;
   description?: string;
@@ -54,9 +46,9 @@ export function DocsDepthDashboard({
           </thead>
           <tbody>
             {sections.map((section) => (
-              <tr key={section.id} className="border-t border-neutral-200 dark:border-neutral-800">
+              <tr key={section.label} className="border-t border-neutral-200 dark:border-neutral-800">
                 <td className="px-4 py-3">
-                  <a href={`/docs#${section.id}`} className="font-medium hover:underline">
+                  <a href={section.href} className="font-medium hover:underline">
                     {section.label}
                   </a>
                 </td>
