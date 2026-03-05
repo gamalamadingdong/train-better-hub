@@ -219,6 +219,92 @@ export function RwnIntegratedReference() {
           </section>
 
           <section className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
+            <h3 className="text-lg font-semibold">3b. Advanced Guidance Features</h3>
+            <div className="mt-4 space-y-3">
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">@open Keyword</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  For intentionally unrestricted segments — sprints, athlete discretion, or &quot;go as hard as you want.&quot;
+                </p>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">0:30@open</p>
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">500m@open</p>
+                </div>
+                <p className="mt-2 text-xs text-neutral-500">
+                  Distinct from omitted guidance — <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">@open</code> means intentional freedom, not a missing value.
+                </p>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Chained Guidance</h4>
+                <p className="mt-1 text-xs text-neutral-500">Combine multiple guidance modifiers on a single work unit.</p>
+                <p className="mt-2 font-mono text-xs text-neutral-700 dark:text-neutral-300">30:00@UT2@r20</p>
+                <p className="mt-1 text-xs text-neutral-500">Zone + rate applied together.</p>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Sub-interval Guidance (+ segments)</h4>
+                <p className="mt-1 text-xs text-neutral-500">Split a piece into segments with individual guidance using + inside repeats.</p>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">10x(2:30@r24..26 + 0:30@open)/30sr</p>
+                  <p className="text-xs text-neutral-500">First 2:30 controlled, last 30s open sprint.</p>
+                </div>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">3x(4:00@UT2 + 1:00@open)/2:00r</p>
+                  <p className="text-xs text-neutral-500">4 min steady + 1 min sprint per rep.</p>
+                </div>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Input Tolerance / Shorthand</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Flexible input forms that normalize to standard RWN notation.
+                </p>
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full min-w-[400px] text-left text-xs">
+                    <thead>
+                      <tr className="border-b border-neutral-300 text-neutral-600 dark:border-neutral-700 dark:text-neutral-400">
+                        <th className="py-1.5 pr-3">Input</th>
+                        <th className="py-1.5 pr-3">Normalized</th>
+                        <th className="py-1.5">Rule</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-neutral-200 font-mono dark:divide-neutral-800">
+                      <tr>
+                        <td className="py-1.5 pr-3">3&apos;</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">3:00</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Minute shorthand</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 pr-3">30&quot;</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">0:30</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Second shorthand</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 pr-3">3&apos;30&quot;</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">3:30</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Combined</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 pr-3">30:00r20</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">30:00@r20</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Rate shorthand</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 pr-3">4 x 500m</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">4x500m</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Whitespace tolerance</td>
+                      </tr>
+                      <tr>
+                        <td className="py-1.5 pr-3">@18-22spm</td>
+                        <td className="py-1.5 pr-3 text-emerald-600 dark:text-emerald-400">@18..22spm</td>
+                        <td className="py-1.5 font-sans text-neutral-500">Dash tolerance</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
             <h3 className="text-lg font-semibold">4. Advanced Syntax</h3>
             <div className="mt-4 space-y-3">
               <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
@@ -235,6 +321,13 @@ export function RwnIntegratedReference() {
                 <h4 className="text-sm font-medium">PM5 Splits</h4>
                 <p className="mt-1 font-mono text-xs text-neutral-700 dark:text-neutral-300">10000m [2000m]</p>
               </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Undefined Rest</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Use <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">/...r</code> for open or coach-defined rest periods.
+                </p>
+                <p className="mt-2 font-mono text-xs text-neutral-700 dark:text-neutral-300">4x2000m/...r</p>
+              </div>
             </div>
           </section>
 
@@ -247,6 +340,67 @@ export function RwnIntegratedReference() {
               <p className="rounded-lg border border-neutral-300 p-3 font-mono text-xs dark:border-neutral-700">Bike: 15000m</p>
               <p className="rounded-lg border border-neutral-300 p-3 font-mono text-xs dark:border-neutral-700">Ski: 8x500m/3:30r</p>
               <p className="rounded-lg border border-neutral-300 p-3 font-mono text-xs dark:border-neutral-700 md:col-span-2">[w]Row: 5:00 + Row: 2000m + Bike: 5000m + Ski: 2000m + [c]Row: 5:00</p>
+            </div>
+          </section>
+
+          <section className="tb-soft-card rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950">
+            <h3 className="text-lg font-semibold">
+              6. Session Orchestration{' '}
+              <span className="ml-2 inline-block rounded-full border border-amber-600/40 bg-amber-500/15 px-2.5 py-0.5 align-middle text-xs font-medium text-amber-700 dark:text-amber-400">
+                Draft
+              </span>
+            </h3>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              Experimental extensions for multi-athlete and non-erg session structures. These are under active design and may change.
+            </p>
+            <div className="mt-4 space-y-3">
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Partner Workouts</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Alternating athlete pairs with <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">partner(on=[core], off=[task])</code>.
+                </p>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">partner(on=4x1000m/...r, off=wait)</p>
+                  <p className="text-xs text-neutral-500">Passive off-task — partner waits.</p>
+                </div>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">partner(on=4x1000m/...r, off=circuit(...))</p>
+                  <p className="text-xs text-neutral-500">Active off-task — partner does a circuit.</p>
+                </div>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Relays</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Team relay format with <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">relay(leg=[distance], total=[distance])</code>.
+                </p>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">relay(leg=500m, total=6000m)</p>
+                  <p className="text-xs text-neutral-500">Basic relay — team size inferred from total ÷ leg.</p>
+                </div>
+                <div className="mt-2 space-y-1">
+                  <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300">relay(leg=500m, total=6000m, team_size=6)</p>
+                  <p className="text-xs text-neutral-500">Explicit team sizing.</p>
+                </div>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Station Rotation</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Circuit rotation with{' '}
+                  <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">rotate(stations=[n], switch=[time], rounds=[n], plan=[...])</code>.
+                </p>
+                <p className="mt-2 font-mono text-xs text-neutral-700 dark:text-neutral-300">
+                  rotate(stations=4, switch=5:00, rounds=3, plan=[Row: 5:00, Bike: 5:00, Ski: 5:00, circuit(...)])
+                </p>
+              </div>
+              <div className="rounded-lg border border-neutral-300 p-4 dark:border-neutral-700">
+                <h4 className="text-sm font-medium">Off-erg Circuit</h4>
+                <p className="mt-1 text-xs text-neutral-500">
+                  Non-erg activities with <code className="rounded bg-neutral-100 px-1 dark:bg-neutral-800">circuit([exercise], [exercise], ...)</code>.
+                </p>
+                <p className="mt-2 font-mono text-xs text-neutral-700 dark:text-neutral-300">
+                  circuit(20 burpees, 20 pushups, 20 situps, 1:00 plank)
+                </p>
+              </div>
             </div>
           </section>
         </div>

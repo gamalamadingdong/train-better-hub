@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import { LcEntryLink } from '@/components/LcEntryLink';
 
-type ExampleCategory = 'Basic' | 'Pace' | 'Advanced' | 'Multi-Modal';
+type ExampleCategory = 'Basic' | 'Pace' | 'Advanced' | 'Multi-Modal' | 'Orchestration';
 
 type PlaygroundExample = {
   label: string;
@@ -18,22 +18,34 @@ const EXAMPLES: PlaygroundExample[] = [
   { label: 'Intervals', value: '4x500m/1:00r', desc: 'Distance sprints', category: 'Basic', canonical: '4x 500m', parsedAs: 'interval (distance work + timed rest)' },
   { label: 'Time Intervals', value: '8x1:00/1:00r', desc: 'Time-based work', category: 'Basic', canonical: '8x 1:00', parsedAs: 'interval (time work + timed rest)' },
   { label: 'Steady State', value: '10000m', desc: 'Simple distance piece', category: 'Basic', canonical: '10,000m', parsedAs: 'steady_state (distance)' },
+  { label: 'Just Row', value: '30:00', desc: 'Open time', category: 'Basic', canonical: '30:00', parsedAs: 'steady_state (time)' },
   { label: 'Training Zone', value: '20:00@UT1', desc: 'Zone-targeted steady state', category: 'Pace', canonical: '20:00 UT1', parsedAs: 'steady_state + guidance target_pace=UT1' },
   { label: 'Relative Pace', value: '5000m@2k+10', desc: 'PR-relative pacing', category: 'Pace', canonical: '5,000m @2k+10', parsedAs: 'steady_state + relative pace guidance' },
   { label: 'Rate Range', value: '30:00@18..22spm', desc: 'Rate band control', category: 'Pace', canonical: '30:00 r18-22', parsedAs: 'steady_state + target_rate/target_rate_max' },
   { label: 'Pace Range', value: '60:00@2:05..2:10', desc: 'Split range control', category: 'Pace', canonical: '60:00 @2:05-2:10', parsedAs: 'steady_state + target_pace/target_pace_max' },
+  { label: 'Chained', value: '30:00@UT2@r20', desc: 'Zone + rate combined', category: 'Pace', canonical: '30:00 UT2 @r20', parsedAs: 'steady_state + chained guidance (zone + rate)' },
   { label: 'With W/U & C/D', value: '[w]10:00 + 5x500m/1:00r + [c]5:00', desc: 'Full session flow', category: 'Advanced', canonical: 'WU + 5x 500m + CD', parsedAs: 'variable with tagged segments + interval block' },
   { label: 'Rate Pyramid', value: '[w]5:00 + 5:00@r20 + 5:00@r22 + 5:00@r24 + 5:00@r22 + [c]5:00', desc: 'Rate progression', category: 'Advanced', canonical: 'Rate pyramid session', parsedAs: 'variable sequence with guidance per step' },
   { label: 'Rate Shorthand', value: '30:00r20', desc: 'Compact rate notation', category: 'Advanced', canonical: '30:00 @r20', parsedAs: 'steady_state + shorthand target rate' },
   { label: 'Variable', value: '(2000m+1000m+500m)/3:00r', desc: 'Ladder / pyramid', category: 'Advanced', canonical: '2k/1k/500 ladder', parsedAs: 'variable grouped chain + group rest' },
   { label: 'Grouped', value: '3x(750m/3:00r + 500m/3:00r)', desc: 'Nested grouped repeats', category: 'Advanced', canonical: '3x grouped set', parsedAs: 'repeat group unrolled to variable steps' },
+  { label: 'Undefined Rest', value: '4x2000m/...r', desc: 'Open rest periods', category: 'Advanced', canonical: '4x 2,000m', parsedAs: 'interval with undefined rest' },
+  { label: 'Rate Ladder', value: '4000m@r20 + 3000m@r22 + 2000m@r24 + 1000m@r28', desc: '10K rate build', category: 'Advanced', canonical: '10K rate ladder', parsedAs: 'variable sequence with rate progression' },
+  { label: 'PM5 Splits', value: '10000m [1000m]', desc: 'Split every 1k', category: 'Advanced', canonical: '10,000m [1k splits]', parsedAs: 'steady_state with PM5 split intervals' },
+  { label: 'Rate Build', value: '2000m[500m@r22 + 500m@r24 + 500m@r26 + 500m@r30]', desc: 'Sub-segments with rate changes', category: 'Advanced', canonical: '2,000m rate build', parsedAs: 'steady_state with sub-interval guidance segments' },
   { label: 'BikeErg', value: 'Bike: 15000m', desc: 'Single modality', category: 'Multi-Modal', canonical: 'Bike 15,000m', parsedAs: 'steady_state with modality prefix' },
   { label: 'SkiErg', value: 'Ski: 8x500m/3:30r', desc: 'Ski intervals', category: 'Multi-Modal', canonical: 'Ski 8x 500m', parsedAs: 'interval with modality prefix' },
   { label: 'Circuit', value: '[w]Row: 5:00 + Row: 2000m + Bike: 5000m + Ski: 2000m + [c]Row: 5:00', desc: 'Cross-training blend', category: 'Multi-Modal', canonical: 'Row/Bike/Ski circuit', parsedAs: 'variable multi-modality sequence' },
   { label: 'Team Circuit', value: '[w]Row: 10:00 + 3x(Row: 2000m/2:00r + Bike: 5000m/2:00r + Run: 800m/2:00r) + [c]Row: 5:00', desc: 'Full team-style circuit', category: 'Multi-Modal', canonical: '3x multi-modality circuit', parsedAs: 'grouped repeat + multi-modality' },
+  { label: 'Partner (wait)', value: 'partner(on=4x1000m/...r, off=wait)', desc: 'Alternate with partner', category: 'Orchestration', canonical: 'Partner 4x 1,000m', parsedAs: 'session extension — partner alternating, passive off-task' },
+  { label: 'Partner (active)', value: 'partner(on=4x1000m/...r, off=circuit(20 burpees,20 pushups,20 situps))', desc: 'Active off-task circuit', category: 'Orchestration', canonical: 'Partner 4x 1,000m + circuit', parsedAs: 'session extension — partner alternating, active off-task circuit' },
+  { label: 'Relay (basic)', value: 'relay(leg=500m, total=6000m)', desc: 'Team relay', category: 'Orchestration', canonical: 'Relay 500m legs / 6,000m total', parsedAs: 'session extension — relay with leg/total distance' },
+  { label: 'Relay (sized)', value: 'relay(leg=500m, total=6000m, team_size=6)', desc: 'Explicit team size', category: 'Orchestration', canonical: 'Relay 500m x6 athletes', parsedAs: 'session extension — relay with explicit team size' },
+  { label: 'Rotate', value: 'rotate(stations=3, switch=15:00, rounds=3, plan=[run(15:00),row(5:00@r20+5:00@r24+5:00@r28),bike(15:00)])', desc: 'Station rotation', category: 'Orchestration', canonical: '3-station rotation x3 rounds', parsedAs: 'session extension — station rotation with typed plan' },
+  { label: 'Circuit', value: 'circuit(20 burpees, 20 pushups, 20 situps, 1:00 plank)', desc: 'Off-erg circuit', category: 'Orchestration', canonical: 'Circuit (4 exercises)', parsedAs: 'session extension — off-erg circuit block' },
 ];
 
-const CATEGORIES: ExampleCategory[] = ['Basic', 'Pace', 'Advanced', 'Multi-Modal'];
+const CATEGORIES: ExampleCategory[] = ['Basic', 'Pace', 'Advanced', 'Multi-Modal', 'Orchestration'];
 
 export function RwnPlaygroundPreview() {
   const [selected, setSelected] = useState<PlaygroundExample>(EXAMPLES[0]);
