@@ -65,6 +65,21 @@ export default function DocsPage() {
               Open Training & Physiology →
             </a>
           </article>
+
+          <article className="rounded-lg border border-neutral-300 p-5 dark:border-neutral-700">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold">Team Management</p>
+              <span className="rounded-full border border-blue-700/40 bg-blue-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                New
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+              Leaderboard metrics, Titan Index methodology, ranking systems, and coaching analytics reference.
+            </p>
+            <a href="/docs/titan-index" className="mt-3 inline-block text-sm font-medium hover:underline">
+              Titan Index →
+            </a>
+          </article>
         </div>
       </section>
 
