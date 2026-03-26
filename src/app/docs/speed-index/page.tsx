@@ -43,7 +43,8 @@ export default function SpeedIndexPage() {
           would suggest. But watts per pound is already derived from watts, and
           watts is derived from split. Speed Index is built around that idea:
           once both values are standardized into the same z-score language,
-          they can be blended evenly without secretly counting speed twice.
+          they can be blended evenly in a way that is explicit rather than
+          accidental.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
           That is why a blended metric makes sense at all. Coaches already make
@@ -51,6 +52,14 @@ export default function SpeedIndexPage() {
           visible in one place so the first pass through a leaderboard is more
           honest than using split alone, without pretending one number should
           replace actual coaching judgment.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+          We are also intentionally aware that this does give raw power extra
+          voice. Split already reflects output, and the relative-power side
+          introduces power again through a bodyweight lens. That overlap is not
+          a bug in the explanation. It is a conscious product choice because we
+          want actual speed to stay primary while still giving explicit credit
+          to athletes who produce more watts for their size.
         </p>
       </section>
 
@@ -65,10 +74,10 @@ export default function SpeedIndexPage() {
         </p>
         <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
           Speed Index keeps that tradeoff visible. It does not say efficiency is
-          more important than speed, and it does not add extra explicit weight
-          to speed after standardization. It says both signals are worth
-          tracking because efficiency can meaningfully change how a coach should
-          interpret a raw speed ranking.
+          more important than speed. It says both signals are worth tracking,
+          and that the product deliberately allows the power side to matter more
+          than a pure efficiency-only adjustment would, because relative power
+          is part of the coaching question rather than a side note.
         </p>
       </section>
 
@@ -118,13 +127,20 @@ export default function SpeedIndexPage() {
             Step 2 - Standardize efficiency
           </h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            The system computes an efficiency z-score from watts per pound.
+            The system computes an efficiency z-score from watts per pound on
+            current leaderboard surfaces.
           </p>
           <pre className="mt-2 overflow-x-auto rounded bg-neutral-900 p-3 text-xs text-neutral-200 dark:bg-neutral-950">
             {`efficiencyZ = (wplb - meanWplb) / stdWplb`}
           </pre>
           <p className="mt-2 text-xs text-neutral-500">
             Higher watts per pound is better, so no sign flip is needed.
+          </p>
+          <p className="mt-2 text-xs text-neutral-500">
+            Some coaches prefer to think in <strong>W/kg</strong> instead. That
+            is valid. Other product surfaces may show both <strong>W/kg</strong>{" "}
+            and <strong>W/lb</strong>; this page focuses on the current
+            leaderboard implementation, which uses <strong>W/lb</strong>.
           </p>
         </div>
 
@@ -134,16 +150,19 @@ export default function SpeedIndexPage() {
           </h3>
           <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
             The two standardized values are combined with equal weighting. That
-            keeps the formula simple and avoids adding extra explicit speed bias
-            after both inputs have already been normalized into the same scale:
+            keeps the formula simple, but it does not mean the output is neutral
+            with respect to power. Because split already reflects output, the
+            relative-power side intentionally gives the final score another way
+            to reward raw power through a bodyweight-normalized lens:
           </p>
           <pre className="mt-2 overflow-x-auto rounded bg-neutral-900 p-3 text-xs text-neutral-200 dark:bg-neutral-950">
             {`rawScore = (speedZ * 0.50) + (efficiencyZ * 0.50)`}
           </pre>
           <p className="mt-2 text-xs text-neutral-500">
             This is the current product model. Think of it as a standardized
-            average across two related but still useful signals. Coaches cannot
-            change the weighting in settings.
+            average across two related signals where the overlap is intentional:
+            speed leads, and relative power still gets a real vote. Coaches
+            cannot change the weighting in settings.
           </p>
         </div>
 
@@ -232,7 +251,7 @@ export default function SpeedIndexPage() {
               <tr className="border-b border-neutral-100 dark:border-neutral-800/50">
                 <td className="py-2 pr-4 font-mono">50-80</td>
                 <td className="py-2 pr-4">Above group average</td>
-                <td className="py-2">Check split and W/lb columns to see which trait is driving the score</td>
+                <td className="py-2">Check split plus relative-power columns (W/lb here, and W/kg where available) to see which trait is driving the score</td>
               </tr>
               <tr className="border-b border-neutral-100 dark:border-neutral-800/50">
                 <td className="py-2 pr-4 font-mono">20-50</td>
@@ -263,7 +282,7 @@ export default function SpeedIndexPage() {
             <tbody className="text-neutral-700 dark:text-neutral-300">
               <tr className="border-b border-neutral-100 dark:border-neutral-800/50">
                 <td className="py-2 pr-4 font-semibold">Speed Index</td>
-                <td className="py-2 pr-4">Standardized blend of speed and W/lb</td>
+                <td className="py-2 pr-4">Standardized blend of speed and relative power</td>
                 <td className="py-2">Quick first-pass ranking</td>
               </tr>
               <tr className="border-b border-neutral-100 dark:border-neutral-800/50">
@@ -274,7 +293,7 @@ export default function SpeedIndexPage() {
               <tr>
                 <td className="py-2 pr-4 font-semibold">Avg W/lb</td>
                 <td className="py-2 pr-4">Mean watts per pound across visible work</td>
-                <td className="py-2">Read efficiency directly</td>
+                <td className="py-2">Read efficiency directly; if you prefer metric framing, treat this as the same relative-power idea that some result views also expose as W/kg</td>
               </tr>
             </tbody>
           </table>

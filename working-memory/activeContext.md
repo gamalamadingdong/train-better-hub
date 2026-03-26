@@ -8,7 +8,15 @@
 - `/docs` now links to `/docs/speed-index`
 - Legacy `/docs/titan-index` now redirects to the new docs route so existing links keep working
 - The new public docs page aligns with the current product model: equal 50/50 z-score blending of speed and W/lb plus page-level time-range filtering
-- The public docs now also explain the coaching rationale in plain language: watts already sits downstream of split, so the product uses equal weighting after normalization instead of adding extra explicit speed bias
+- The public docs now explain the coaching rationale in plain language using the latest product framing:
+  - the 50/50 blend is intentional, not neutral
+  - the team leaderboard currently uses `W/lb` for the relative-power side
+  - the overlap with split is acknowledged explicitly as a deliberate choice to give raw power more voice
+  - the docs now also acknowledge that some coaches prefer `W/kg`, and other product surfaces may expose both `W/kg` and `W/lb`
+- `src/app/docs/speed-index/page.tsx` was updated to remove the earlier "not counting speed twice" / "no extra bias" framing and replace it with the explicit intentional-weighting explanation used in current product docs
+- validation for the latest doc update:
+  - `npm run build` ✅
+  - `npm run lint` is currently not a reliable validation command in this repo because the `next lint` script resolves incorrectly in the local setup
 
 ## Current State: Scaffolded + Brand/Positioning Pass Updated
 
