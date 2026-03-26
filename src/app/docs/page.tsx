@@ -74,10 +74,10 @@ export default function DocsPage() {
               </span>
             </div>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-              Leaderboard metrics, Titan Index methodology, ranking systems, and coaching analytics reference.
+              Leaderboard metrics, Speed Index methodology, ranking systems, and coaching analytics reference.
             </p>
-            <a href="/docs/titan-index" className="mt-3 inline-block text-sm font-medium hover:underline">
-              Titan Index →
+            <a href="/docs/speed-index" className="mt-3 inline-block text-sm font-medium hover:underline">
+              Speed Index →
             </a>
           </article>
         </div>

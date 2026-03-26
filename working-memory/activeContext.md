@@ -2,6 +2,14 @@
 
 > Last updated: 2026-02-17
 
+## Current State: Speed Index terminology updated
+
+- Public Team Management docs now use `Speed Index` instead of `Titan Index`
+- `/docs` now links to `/docs/speed-index`
+- Legacy `/docs/titan-index` now redirects to the new docs route so existing links keep working
+- The new public docs page aligns with the current product model: equal 50/50 z-score blending of speed and W/lb plus page-level time-range filtering
+- The public docs now also explain the coaching rationale in plain language: watts already sits downstream of split, so the product uses equal weighting after normalization instead of adding extra explicit speed bias
+
 ## Current State: Scaffolded + Brand/Positioning Pass Updated
 
 The Hub repo is scaffolded with Next.js 16 (App Router), TypeScript strict, TailwindCSS, and page stubs for all IA sections. Brand/domain messaging has been updated for ReadyAll (`readyall.org`) and core platform positioning is now explicit across Home, Products, Docs, Community, and Roadmap.
